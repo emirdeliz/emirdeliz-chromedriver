@@ -10,16 +10,13 @@ inputs:
   download-path:
     description: 'The path to download chromedriver'
     default: ''
-outputs:
-  status:
-    description: 'Download success'
-    value: ${{ steps.random-number-generator.outputs.random-number }}
 runs:
   using: 'composite'
   steps:
     - run: echo Hello ${{ description }}.
-      shell: bash
-    - run: download.sh ${{ inputs.download-path }} ${{ inputs.version }} ${{ inputs.arch }}
-      shell: bash
-    - run: goodbye.sh
-      shell: bash
+      shell: sh
+    - run: sh .github/actions/download.sh
+        ${{ inputs.version }}
+        ${{ inputs.arch }}
+        ${{ inputs.download-path }}
+      shell: sh

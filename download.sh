@@ -1,19 +1,48 @@
-#!/bin/bash
-VERSION=$1
-ARCH=$2
-DOWNLOAD_PATH=$2
-CHROMEDRIVER_FILENAME="chromedriver_$ARCH"
+#!/bin/sh
 
-if ! [ "$VERSION" == "latest" ]; then
-	VERSION="LATEST_RELEASE"
-fi
+setDownloadDir() {
+	DOWNLOAD_PATH=$1
+	if [ "$DOWNLOAD_PATH" != "" ]; then
+		cd "$DOWNLOAD_PATH" || exit
+	fi
+}
 
-if ! [ "$DOWNLOAD_PATH" == "" ]; then
-	cd DOWNLOAD_PATH || exit
-fi
+removeObsoleteFiles() {
+	rm -rf chromedriver LICENSE.chromedriver
+}
 
-CHROMEDRIVER_RELEASE=$(curl --location --fail --retry 3 http://chromedriver.storage.googleapis.com/"${LATEST_RELEASE}") &&
-	curl --silent --show-error --location --fail --retry 3 --output /tmp/chromedriver_linux64.zip "http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_RELEASE/$CHROMEDRIVER_FILENAME.zip" &&
-	unzip "$CHROMEDRIVER_FILENAME.zip" &&
-	rm -rf "$CHROMEDRIVER_FILENAME.zip" &&
-	./chromedriver --version
+getDriverVersion() {
+	VERSION=$1
+	if [ "$VERSION" = "latest" ]; then
+		VERSION="LATEST_RELEASE"
+	fi
+
+	CHROMEDRIVER_RELEASE="$(curl --show-error --retry 10 "http://chromedriver.storage.googleapis.com/$VERSION")"
+	echo "$CHROMEDRIVER_RELEASE"
+}
+
+downloadDriver() {
+	CHROMEDRIVER_RELEASE=$1
+	CHROMEDRIVER_FILENAME=$2
+	DONWLOAD_URL="https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_RELEASE/$CHROMEDRIVER_FILENAME"
+	curl --show-error --retry 10 --output "$CHROMEDRIVER_FILENAME" "$DONWLOAD_URL"
+}
+
+unzipFiles() {
+	CHROMEDRIVER_FILENAME=$1
+	unzip "$CHROMEDRIVER_FILENAME".zip
+}
+
+main() {
+	CHROMEDRIVER_FILENAME="chromedriver_$2"
+	CHROMEDRIVER_RELEASE="$(getDriverVersion "$1")"
+
+	echo "$CHROMEDRIVER_RELEASE" &&
+		setDownloadDir "$3" &&
+		removeObsoleteFiles &&
+		downloadDriver "$CHROMEDRIVER_RELEASE" "$CHROMEDRIVER_FILENAME".zip &&
+		unzip "$CHROMEDRIVER_FILENAME" &&
+		./chromedriver --version
+}
+
+main "$1" "$2" "$3"
