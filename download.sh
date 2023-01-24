@@ -37,8 +37,7 @@ main() {
 	CHROMEDRIVER_FILENAME="chromedriver_$2"
 	CHROMEDRIVER_RELEASE="$(getDriverVersion "$1")"
 
-	echo "$CHROMEDRIVER_RELEASE" &&
-		setDownloadDir "$3" &&
+	setDownloadDir "$3" &&
 		removeObsoleteFiles &&
 		downloadDriver "$CHROMEDRIVER_RELEASE" "$CHROMEDRIVER_FILENAME".zip &&
 		unzip "$CHROMEDRIVER_FILENAME" &&
