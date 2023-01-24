@@ -30,7 +30,7 @@ downloadDriver() {
 
 unzipFiles() {
 	CHROMEDRIVER_FILENAME=$1
-	tar -xf "$CHROMEDRIVER_FILENAME".zip
+	gzip -d "$CHROMEDRIVER_FILENAME".zip
 }
 
 main() {
