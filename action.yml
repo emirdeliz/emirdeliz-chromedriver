@@ -17,7 +17,7 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - run: sh .github/actions/download.sh
+    - run: sh download.sh
         ${{ inputs.version }}
         ${{ inputs.arch }}
         ${{ inputs.download-path }}
