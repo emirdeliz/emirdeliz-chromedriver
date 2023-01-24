@@ -2,7 +2,7 @@ name: Windows 32
 on: [push]
 jobs:
   test:
-    runs-on: ubuntu-22.04
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
       - uses: ./
