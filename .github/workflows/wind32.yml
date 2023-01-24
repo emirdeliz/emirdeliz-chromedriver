@@ -2,7 +2,7 @@ name: Windows 32
 on: [push]
 jobs:
   test:
-    runs-on: windows-latest-8-cores
+    runs-on: windows-2019
     steps:
       - uses: actions/checkout@v3
       - uses: ./
