@@ -17,10 +17,12 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - run: echo Hello ${{ description }}.
-      shell: sh
     - run: sh .github/actions/download.sh
         ${{ inputs.version }}
         ${{ inputs.arch }}
         ${{ inputs.download-path }}
       shell: sh
+# user="emirdeliz" repo=emirdeliz-chromedriver
+# gh api repos/$user/$repo/actions/runs \
+#         --paginate -q '.workflow_runs[] | select(.head_branch != "master1:wq") | "\(.id)"' |
+#         xargs -n1 -I % gh api repos/$user/$repo/actions/runs/% -X DELETE
