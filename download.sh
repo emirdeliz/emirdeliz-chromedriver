@@ -13,11 +13,12 @@ removeObsoleteFiles() {
 
 getDriverVersion() {
 	VERSION=$1
+	FILENAME=$2
 	if [ "$VERSION" = "latest" ]; then
 		VERSION="LATEST_RELEASE"
 	fi
 
-	CHROMEDRIVER_RELEASE="$(curl --show-error --retry 10 "http://chromedriver.storage.googleapis.com/$VERSION")"
+	CHROMEDRIVER_RELEASE="$(curl --show-error --retry 10 "http://chromedriver.storage.googleapis.com/$VERSION/$FILENAME.zip")"
 	echo "$CHROMEDRIVER_RELEASE"
 }
 
@@ -35,7 +36,7 @@ unzipFiles() {
 
 main() {
 	CHROMEDRIVER_FILENAME="chromedriver_$2"
-	CHROMEDRIVER_RELEASE="$(getDriverVersion "$1")"
+	CHROMEDRIVER_RELEASE="$(getDriverVersion "$1" "$CHROMEDRIVER_FILENAME")"
 
 	echo "$CHROMEDRIVER_RELEASE" &&
 		setDownloadDir "$3" &&
