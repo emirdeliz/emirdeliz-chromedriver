@@ -25,12 +25,12 @@ downloadDriver() {
 	CHROMEDRIVER_RELEASE=$1
 	CHROMEDRIVER_FILENAME=$2
 	DONWLOAD_URL="https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_RELEASE/$CHROMEDRIVER_FILENAME"
-	curl --show-error --retry 10 --output "$CHROMEDRIVER_FILENAME" "$DONWLOAD_URL"
+	curl --show-error --retry 10 --output "$CHROMEDRIVER_FILENAME".zip "$DONWLOAD_URL"
 }
 
 unzipFiles() {
 	CHROMEDRIVER_FILENAME=$1
-	tar -xf "$CHROMEDRIVER_FILENAME"
+	tar -xf "$CHROMEDRIVER_FILENAME".zip
 }
 
 main() {
