@@ -3,7 +3,7 @@
 setDownloadDir() {
 	DOWNLOAD_PATH=$1
 	if [ "$DOWNLOAD_PATH" != "" ]; then
-		cd "$DOWNLOAD_PATH" || exit
+		mkdir -p "$DOWNLOAD_PATH" && cd "$DOWNLOAD_PATH" || exit
 	fi
 }
 
