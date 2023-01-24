@@ -1,5 +1,9 @@
-name: 'Chromedriver download'
+name: 'emirdeliz-chromedriver'
 description: 'Download the chromedriver'
+author: Emir Marques - <emirdeliz@gmail.com>
+branding:
+  color: green
+  icon: activity
 inputs:
   version:
     description: 'The chromedriver version'
