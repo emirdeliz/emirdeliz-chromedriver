@@ -30,7 +30,7 @@ downloadDriver() {
 
 unzipFiles() {
 	CHROMEDRIVER_FILENAME=$1
-	unzip "$CHROMEDRIVER_FILENAME".zip
+	tar -xf "$CHROMEDRIVER_FILENAME".zip
 }
 
 main() {
@@ -40,7 +40,7 @@ main() {
 	setDownloadDir "$3" &&
 		removeObsoleteFiles &&
 		downloadDriver "$CHROMEDRIVER_RELEASE" "$CHROMEDRIVER_FILENAME".zip &&
-		unzip "$CHROMEDRIVER_FILENAME" &&
+		unzipFiles "$CHROMEDRIVER_FILENAME" &&
 		./chromedriver --version
 }
 
