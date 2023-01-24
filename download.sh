@@ -3,7 +3,7 @@
 setDownloadDir() {
 	DOWNLOAD_PATH=$1
 	if [ "$DOWNLOAD_PATH" != "" ]; then
-		mkdir -p "$DOWNLOAD_PATH" && cd "$DOWNLOAD_PATH" || exit
+		mkdir -p DOWNLOAD_PATH && cd "$DOWNLOAD_PATH" || exit
 	fi
 }
 
@@ -13,12 +13,11 @@ removeObsoleteFiles() {
 
 getDriverVersion() {
 	VERSION=$1
-	FILENAME=$2
+	CHROMEDRIVER_RELEASE="$VERSION"
 	if [ "$VERSION" = "latest" ]; then
 		VERSION="LATEST_RELEASE"
+		CHROMEDRIVER_RELEASE="$(curl --show-error --retry 10 "http://chromedriver.storage.googleapis.com/$VERSION")"
 	fi
-
-	CHROMEDRIVER_RELEASE="$(curl --show-error --retry 10 "http://chromedriver.storage.googleapis.com/$VERSION/$FILENAME.zip")"
 	echo "$CHROMEDRIVER_RELEASE"
 }
 
@@ -36,7 +35,7 @@ unzipFiles() {
 
 main() {
 	CHROMEDRIVER_FILENAME="chromedriver_$2"
-	CHROMEDRIVER_RELEASE="$(getDriverVersion "$1" "$CHROMEDRIVER_FILENAME")"
+	CHROMEDRIVER_RELEASE="$(getDriverVersion "$1")"
 
 	echo "$CHROMEDRIVER_RELEASE" &&
 		setDownloadDir "$3" &&
