@@ -39,7 +39,7 @@ unzipFiles() {
 	FILENAME_ZIP="$CHROMEDRIVER_FILENAME"
 	CURRENT_DIR=$(pwd)
 
-	echo "$CURRENT_DIR\$CHROMEDRIVER_FILENAME"
+	echo "$CURRENT_DIR \ $CHROMEDRIVER_FILENAME"
 
 	if [ "$OSTYPE" == "msys" ]; then
 		ls && powershell -command "Expand-Archive $CURRENT_DIR\$CHROMEDRIVER_FILENAME CURRENT_DIR" && ls
