@@ -14,7 +14,7 @@ This action sets up a [ChromeDriver](https://chromedriver.chromium.org/) for use
 
 See [action.yml](action.yml)
 
-# inputs
+# Inputs
 
 ```yml
 input:
