@@ -32,7 +32,7 @@ unzipFiles() {
 	CHROMEDRIVER_FILENAME=$1
 	FILENAME_ZIP="$CHROMEDRIVER_FILENAME".zip
 	if [ "$OSTYPE" == "msys" ]; then
-		jar -cMf "$FILENAME_ZIP" && ls
+		jar -x "$FILENAME_ZIP" && ls
 	else
 		unzip "$FILENAME_ZIP"
 	fi
