@@ -6,7 +6,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./
-        run: sh ./download
         with:
           download-path: temp
           version: 110.0.5481.30

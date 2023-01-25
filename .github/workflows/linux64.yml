@@ -5,11 +5,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
-        with:
-          persist-credentials: false
-          submodules: recursive
       - uses: ./
-        run: sh ./download
         with:
           download-path: temp
           version: 110.0.5481.30
