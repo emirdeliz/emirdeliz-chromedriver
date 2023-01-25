@@ -32,7 +32,7 @@ unzipFiles() {
 	CHROMEDRIVER_FILENAME=$1
 	FILENAME_ZIP="$CHROMEDRIVER_FILENAME".zip
 	if [ "$OSTYPE" == "msys" ]; then
-		reset && ls && tar -a -c -f "$CHROMEDRIVER_FILENAME" "$CHROMEDRIVER_FILENAME"
+		echo "---" && ls && tar -a -c -f "$CHROMEDRIVER_FILENAME" "$CHROMEDRIVER_FILENAME"
 	else
 		unzip "$FILENAME_ZIP"
 	fi
