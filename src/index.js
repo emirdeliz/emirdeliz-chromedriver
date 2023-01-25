@@ -14,7 +14,7 @@ async function run() {
 	});
 
 	const shPath = `${fs.realpathSync('.')}/src/download.sh`;
-	await _exec('sh', shPath, [version, arch, downloadPath]);
+	await _exec('bash', shPath, [version, arch, downloadPath]);
 }
 
 run();
