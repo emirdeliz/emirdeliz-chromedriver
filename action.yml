@@ -17,7 +17,7 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - run: sh download.sh
+    - run: ls && pwd && sh ./download.sh
         ${{ inputs.version }}
         ${{ inputs.arch }}
         ${{ inputs.download-path }}
