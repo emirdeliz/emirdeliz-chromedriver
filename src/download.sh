@@ -32,7 +32,7 @@ downloadDriver() {
 unzipFiles() {
 	CHROMEDRIVER_FILENAME="$1"
 	DOWNLOAD_PATH="$2"
-	zip -T && 7z e "${CHROMEDRIVER_FILENAME}.zip" && ls
+	7z e "${CHROMEDRIVER_FILENAME}.zip" && ls
 }
 
 main() {
