@@ -32,8 +32,11 @@ unzipFiles() {
 	CHROMEDRIVER_FILENAME=$1
 	OS="$(uname)"
 
+	echo "CHEGOU AQUI..."
+
 	if [ "$OS" = "WindowsNT" ]; then
-		pkunzip "$CHROMEDRIVER_FILENAME".zip
+		echo "ENTROU AQUI..."
+		pkunzip "$CHROMEDRIVER_FILENAME"
 	else
 		unzip "$CHROMEDRIVER_FILENAME".zip
 	fi
