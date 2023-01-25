@@ -24,14 +24,14 @@ getDriverVersion() {
 downloadDriver() {
 	CHROMEDRIVER_RELEASE="$1"
 	CHROMEDRIVER_FILENAME="$2"
-	# FILENAME_ZIP="$CHROMEDRIVER_FILENAME"
+	FILENAME_ZIP="${CHROMEDRIVER_FILENAME}.zip"
 
 	# # if [ "$OSTYPE" != "msys" ]; then
 	# FILENAME_ZIP="${CHROMEDRIVER_FILENAME}.zip"
 	# # fi
 
-	DONWLOAD_URL="https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_RELEASE/$CHROMEDRIVER_FILENAME"
-	curl "$DONWLOAD_URL" -O -J -L -V
+	DONWLOAD_URL="https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_RELEASE/$FILENAME_ZIP"
+	curl "$DONWLOAD_URL" -L -o "$FILENAME_ZIP"
 }
 
 unzipFiles() {
@@ -39,7 +39,7 @@ unzipFiles() {
 	DOWNLOAD_PATH="$2"
 	# FILENAME_ZIP="$CHROMEDRIVER_FILENAME"
 
-	ls
+	echo "---" && ls && echo "---"
 
 	# if [ "$OSTYPE" != "msys" ]; then
 	# 	FILENAME_ZIP="${CHROMEDRIVER_FILENAME}.zip"
@@ -54,7 +54,7 @@ main() {
 
 	setDownloadDir "$DOWNLOAD_PATH" &&
 		removeObsoleteFiles &&
-		downloadDriver "$CHROMEDRIVER_RELEASE" "${CHROMEDRIVER_FILENAME}.zip" &&
+		downloadDriver "$CHROMEDRIVER_RELEASE" "$CHROMEDRIVER_FILENAME" &&
 		unzipFiles "$CHROMEDRIVER_FILENAME" "$DOWNLOAD_PATH" &&
 		./chromedriver --version
 }
