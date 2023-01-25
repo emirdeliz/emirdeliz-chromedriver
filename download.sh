@@ -39,13 +39,10 @@ unzipFiles() {
 	DOWNLOAD_PATH="$2"
 	FILENAME_ZIP="$CHROMEDRIVER_FILENAME"
 
-	if [ "$OSTYPE" == "msys" ]; then
-		# powershell -command "Expand-Archive -Force $CHROMEDRIVER_FILENAME -DestinationPath $CURRENT_DIR" && ls
-		7z -a "$CHROMEDRIVER_FILENAME" && ls
-	else
+	if ! [ "$OSTYPE" == "msys" ]; then
 		FILENAME_ZIP="${CHROMEDRIVER_FILENAME}.zip"
-		unzip "$FILENAME_ZIP"
 	fi
+	7z e "$CHROMEDRIVER_FILENAME" && ls
 }
 
 main() {
