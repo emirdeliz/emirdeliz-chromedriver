@@ -4038,11 +4038,7 @@ const version = (0,_actions_core__WEBPACK_IMPORTED_MODULE_2__.getInput)('version
 const arch = (0,_actions_core__WEBPACK_IMPORTED_MODULE_2__.getInput)('arch', { required: false });
 const downloadPath = (0,_actions_core__WEBPACK_IMPORTED_MODULE_2__.getInput)('download-path', { required: false });
 
-await (0,_actions_exec__WEBPACK_IMPORTED_MODULE_1__.exec)(__nccwpck_require__.ab + "download.sh", [
-	version,
-	arch,
-	downloadPath,
-]);
+await (0,_actions_exec__WEBPACK_IMPORTED_MODULE_1__.exec)(__nccwpck_require__.ab + "download.sh", [version, arch, downloadPath]);
 
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } }, 1);

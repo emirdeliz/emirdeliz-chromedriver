@@ -6,8 +6,4 @@ const version = getInput('version', { required: false });
 const arch = getInput('arch', { required: false });
 const downloadPath = getInput('download-path', { required: false });
 
-await _exec(path.join(__dirname, '../src/download.sh'), [
-	version,
-	arch,
-	downloadPath,
-]);
+await _exec(path.join(__dirname, 'download.sh'), [version, arch, downloadPath]);
