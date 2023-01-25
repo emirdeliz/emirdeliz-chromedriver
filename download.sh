@@ -31,7 +31,7 @@ downloadDriver() {
 	# # fi
 
 	DONWLOAD_URL="https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_RELEASE/$FILENAME_ZIP"
-	curl "$DONWLOAD_URL" -L -o "$FILENAME_ZIP"
+	curl -L -o ./"$FILENAME_ZIP" "$DONWLOAD_URL"
 }
 
 unzipFiles() {
