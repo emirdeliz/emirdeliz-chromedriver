@@ -42,7 +42,7 @@ unzipFiles() {
 	if [ "$OSTYPE" != "msys" ]; then
 		FILENAME_ZIP="${CHROMEDRIVER_FILENAME}.zip"
 	fi
-	7z e "$CHROMEDRIVER_FILENAME" && ls
+	7z x *.zip && ls
 }
 
 main() {
