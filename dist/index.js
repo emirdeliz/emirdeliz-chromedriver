@@ -4027,16 +4027,22 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("util");
 /***/ ((__webpack_module__, __unused_webpack___webpack_exports__, __nccwpck_require__) => {
 
 __nccwpck_require__.a(__webpack_module__, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
-/* harmony import */ var _actions_exec__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(514);
-/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(186);
+/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(17);
+/* harmony import */ var _actions_exec__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(514);
+/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_2__ = __nccwpck_require__(186);
 
 
 
-const version = (0,_actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput)('version', { required: false });
-const arch = (0,_actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput)('arch', { required: false });
-const downloadPath = (0,_actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput)('download-path', { required: false });
 
-await (0,_actions_exec__WEBPACK_IMPORTED_MODULE_0__.exec)(path.join(__dirname, 'download.sh'), [version, arch, downloadPath]);
+const version = (0,_actions_core__WEBPACK_IMPORTED_MODULE_2__.getInput)('version', { required: false });
+const arch = (0,_actions_core__WEBPACK_IMPORTED_MODULE_2__.getInput)('arch', { required: false });
+const downloadPath = (0,_actions_core__WEBPACK_IMPORTED_MODULE_2__.getInput)('download-path', { required: false });
+
+await (0,_actions_exec__WEBPACK_IMPORTED_MODULE_1__.exec)(__nccwpck_require__.ab + "download.sh", [
+	version,
+	arch,
+	downloadPath,
+]);
 
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } }, 1);
