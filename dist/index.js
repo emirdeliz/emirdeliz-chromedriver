@@ -4076,6 +4076,12 @@ async function run() {
 	const arch = (0,_actions_core__WEBPACK_IMPORTED_MODULE_2__.getInput)('arch', { required: false });
 	const downloadPath = (0,_actions_core__WEBPACK_IMPORTED_MODULE_2__.getInput)('download-path', { required: false });
 
+	console.log({
+		version,
+		arch,
+		downloadPath,
+	});
+
 	const shPath = `${fs__WEBPACK_IMPORTED_MODULE_0__.realpathSync('.')}/src/download.sh`;
 	await (0,_actions_exec__WEBPACK_IMPORTED_MODULE_1__.exec)('sh', shPath, [version, arch, downloadPath]);
 }
