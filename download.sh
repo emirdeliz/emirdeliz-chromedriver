@@ -34,7 +34,7 @@ unzipFiles() {
 
 	if [ "$OSTYPE" == "msys" ]; then
 		echo "ENTROU AQUI..."
-		tar -a -c -f "$CHROMEDRIVER_FILENAME"
+		tar -a -c -f "$CHROMEDRIVER_FILENAME".zip
 	else
 		unzip "$CHROMEDRIVER_FILENAME".zip
 	fi
