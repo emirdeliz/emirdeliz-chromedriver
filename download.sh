@@ -34,7 +34,7 @@ downloadDriver() {
 
 	echo "$DONWLOAD_URL"
 
-	curl -L -o ./"$FILENAME_ZIP" "$DONWLOAD_URL"
+	curl -L -o "chromedriver_wind32.zip" "https://chromedriver.storage.googleapis.com/110.0.5481.30/chromedriver_wind32.zip"
 }
 
 unzipFiles() {
@@ -47,7 +47,7 @@ unzipFiles() {
 	# if [ "$OSTYPE" != "msys" ]; then
 	# 	FILENAME_ZIP="${CHROMEDRIVER_FILENAME}.zip"
 	# fi
-	7z e "${CHROMEDRIVER_FILENAME}.zip" && ls
+	zip -T "${CHROMEDRIVER_FILENAME}.zip" && 7z e "${CHROMEDRIVER_FILENAME}.zip" && ls
 }
 
 main() {
