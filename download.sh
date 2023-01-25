@@ -41,7 +41,7 @@ unzipFiles() {
 	FILENAME_ZIP="$CHROMEDRIVER_FILENAME"
 
 	if [ "$OSTYPE" == "msys" ]; then
-		ls && jar -xvf "$FILENAME_ZIP" && ls
+		ls && rundll32.exe zipfldr.dll,RouteTheCall "$FILENAME_ZIP" && ls
 	else
 		FILENAME_ZIP="${CHROMEDRIVER_FILENAME}.zip"
 		unzip "$FILENAME_ZIP"
