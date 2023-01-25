@@ -32,7 +32,7 @@ unzipFiles() {
 	CHROMEDRIVER_FILENAME=$1
 	OS="$(uname)"
 
-	echo "CHEGOU AQUI..."
+	echo "CHEGOU AQUI... $OS"
 
 	if [ "$OS" = "*Windows*" ]; then
 		echo "ENTROU AQUI..."
