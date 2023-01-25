@@ -30,20 +30,19 @@ downloadDriver() {
 		FILENAME_ZIP="${CHROMEDRIVER_FILENAME}.zip"
 	fi
 
-	echo "FILENAME_ZIP $FILENAME_ZIP"
-
 	DONWLOAD_URL="https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_RELEASE/$CHROMEDRIVER_FILENAME"
 	curl --show-error --retry 10 --output "$FILENAME_ZIP" "$DONWLOAD_URL"
 }
 
 unzipFiles() {
 	CHROMEDRIVER_FILENAME="$1"
-	FILENAME_ZIP="$CHROMEDRIVER_FILENAME"
+	FILENAME_ZIP="${CHROMEDRIVER_FILENAME}.zip"
+
+	echo "123 FILENAME_ZIP $FILENAME_ZIP"
 
 	if [ "$OSTYPE" == "msys" ]; then
 		ls && rundll32.exe zipfldr.dll,RouteTheCall "$FILENAME_ZIP" && ls
 	else
-		FILENAME_ZIP="${CHROMEDRIVER_FILENAME}.zip"
 		unzip "$FILENAME_ZIP"
 	fi
 }
