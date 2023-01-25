@@ -34,11 +34,16 @@ downloadDriver() {
 	curl --show-error --retry 10 --output "$FILENAME_ZIP" "$DONWLOAD_URL"
 }
 
+getCurrentDirAsPath() {
+	for /f "tokens=* delims=/" %%A in ('cd') do set CURRENT_DIR=%%A
+	echo CURRENT_DIR%%A 
+}
+
 unzipFiles() {
 	CHROMEDRIVER_FILENAME="$1"
 	FILENAME_ZIP="$CHROMEDRIVER_FILENAME"
-	CURRENT_DIR=$(cd || exit)
-	echo "$CURRENT_DIR/$CHROMEDRIVER_FILENAME"
+	CURRENT_DIR=$(pwd)
+	echo "$CURRENT_DIR////$CHROMEDRIVER_FILENAME"
 
 	if [ "$OSTYPE" == "msys" ]; then
 		ls && powershell -command "Expand-Archive $CURRENT_DIR/$CHROMEDRIVER_FILENAME $CURRENT_DIR" && ls
