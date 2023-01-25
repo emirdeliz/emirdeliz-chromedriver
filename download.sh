@@ -38,11 +38,12 @@ downloadDriver() {
 
 unzipFiles() {
 	CHROMEDRIVER_FILENAME="$1"
-	FILENAME_ZIP="${CHROMEDRIVER_FILENAME}.zip"
+	FILENAME_ZIP="$CHROMEDRIVER_FILENAME"
 
 	if [ "$OSTYPE" == "msys" ]; then
-		jar -xvf "$FILENAME_ZIP" && ls
+		ls && jar -xvf "$FILENAME_ZIP" && ls
 	else
+		FILENAME_ZIP="${CHROMEDRIVER_FILENAME}.zip"
 		unzip "$FILENAME_ZIP"
 	fi
 }
