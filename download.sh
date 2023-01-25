@@ -26,7 +26,7 @@ downloadDriver() {
 	CHROMEDRIVER_FILENAME="$2"
 	FILENAME_ZIP="$CHROMEDRIVER_FILENAME"
 
-	if ! [ "$OSTYPE" == "msys" ]; then
+	if [ "$OSTYPE" != "msys" ]; then
 		FILENAME_ZIP="${CHROMEDRIVER_FILENAME}.zip"
 	fi
 
@@ -38,6 +38,8 @@ unzipFiles() {
 	CHROMEDRIVER_FILENAME="$1"
 	DOWNLOAD_PATH="$2"
 	FILENAME_ZIP="$CHROMEDRIVER_FILENAME"
+
+	ls
 
 	if [ "$OSTYPE" != "msys" ]; then
 		FILENAME_ZIP="${CHROMEDRIVER_FILENAME}.zip"
