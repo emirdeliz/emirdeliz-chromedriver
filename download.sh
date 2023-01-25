@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 setDownloadDir() {
 	DOWNLOAD_PATH=$1
@@ -14,7 +14,7 @@ removeObsoleteFiles() {
 getDriverVersion() {
 	VERSION=$1
 	CHROMEDRIVER_RELEASE="$VERSION"
-	if [ "$VERSION" = "latest" ]; then
+	if [ "$VERSION" == "latest" ]; then
 		VERSION="LATEST_RELEASE"
 		CHROMEDRIVER_RELEASE="$(curl --show-error --retry 10 "http://chromedriver.storage.googleapis.com/$VERSION")"
 	fi
@@ -34,7 +34,7 @@ unzipFiles() {
 
 	echo "CHEGOU AQUI... $OS"
 
-	if [ "$OS" = "*Windows*" ]; then
+	if [ "$OSTYPE" == "win32" ]; then
 		echo "ENTROU AQUI..."
 		pkunzip "$CHROMEDRIVER_FILENAME"
 	else
