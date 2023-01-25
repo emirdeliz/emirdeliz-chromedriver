@@ -38,25 +38,10 @@ unzipFiles() {
 	CHROMEDRIVER_FILENAME="$1"
 	DOWNLOAD_PATH="$2"
 	FILENAME_ZIP="$CHROMEDRIVER_FILENAME"
-	CURRENT_DIR="C:\\d\\a\\emirdeliz-chromedriver\\emirdeliz-chromedriver\\$DOWNLOAD_PATH"
-
-	echo $(pwd)
-	echo "$CURRENT_DIR"
-	echo "OSTYPE: $OSTYPE"
-
-	echo ""
-	echo ""
-	echo ""
-	ls
-	echo ""
-	echo ""
-	echo ""
-
-	7z && jar
 
 	if [ "$OSTYPE" == "msys" ]; then
 		# powershell -command "Expand-Archive -Force $CHROMEDRIVER_FILENAME -DestinationPath $CURRENT_DIR" && ls
-		powershell -command "Expand-Archive -Force '%~dp0$CHROMEDRIVER_FILENAME' '%~dp0'"
+		7z -a "$CHROMEDRIVER_FILENAME" && ls
 	else
 		FILENAME_ZIP="${CHROMEDRIVER_FILENAME}.zip"
 		unzip "$FILENAME_ZIP"
