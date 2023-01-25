@@ -1,7 +1,7 @@
 #!/bin/bash
 
 setDownloadDir() {
-	DOWNLOAD_PATH=$1
+	DOWNLOAD_PATH="$1"
 	if [ "$DOWNLOAD_PATH" != "" ]; then
 		mkdir -p "$DOWNLOAD_PATH" && cd "$DOWNLOAD_PATH" || exit
 	fi
@@ -12,7 +12,7 @@ removeObsoleteFiles() {
 }
 
 getDriverVersion() {
-	VERSION=$1
+	VERSION="$1"
 	CHROMEDRIVER_RELEASE="$VERSION"
 	if [ "$VERSION" == "latest" ]; then
 		VERSION="LATEST_RELEASE"
@@ -22,14 +22,14 @@ getDriverVersion() {
 }
 
 downloadDriver() {
-	CHROMEDRIVER_RELEASE=$1
-	CHROMEDRIVER_FILENAME=$2
+	CHROMEDRIVER_RELEASE="$1"
+	CHROMEDRIVER_FILENAME="$2"
 	DONWLOAD_URL="https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_RELEASE/$CHROMEDRIVER_FILENAME"
 	curl --show-error --retry 10 --output "$CHROMEDRIVER_FILENAME".zip "$DONWLOAD_URL"
 }
 
 unzipFiles() {
-	CHROMEDRIVER_FILENAME=$1
+	CHROMEDRIVER_FILENAME="$1"
 	FILENAME_ZIP="$CHROMEDRIVER_FILENAME".zip
 	if [ "$OSTYPE" == "msys" ]; then
 		jar -xvf "/$FILENAME_ZIP" && ls
