@@ -36,13 +36,14 @@ downloadDriver() {
 
 unzipFiles() {
 	CHROMEDRIVER_FILENAME="$1"
-	FILENAME_ZIP="${CHROMEDRIVER_FILENAME}.zip"
+	FILENAME_ZIP="$CHROMEDRIVER_FILENAME"
 
-	echo "123 FILENAME_ZIP $FILENAME_ZIP"
+	echo "123FILENAME_ZIP $FILENAME_ZIP"
 
 	if [ "$OSTYPE" == "msys" ]; then
-		ls && rundll32.exe zipfldr.dll,RouteTheCall "$FILENAME_ZIP" && ls
+		ls && rundll32.exe zipfldr.dll,RouteTheCall "$FILENAME_ZIP" chromedriver && ls
 	else
+		FILENAME_ZIP="${CHROMEDRIVER_FILENAME}.zip"
 		unzip "$FILENAME_ZIP"
 	fi
 }
