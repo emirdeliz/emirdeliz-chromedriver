@@ -39,7 +39,7 @@ unzipFiles() {
 	DOWNLOAD_PATH="$2"
 	FILENAME_ZIP="$CHROMEDRIVER_FILENAME"
 
-	if ! [ "$OSTYPE" == "msys" ]; then
+	if [ "$OSTYPE" != "msys" ]; then
 		FILENAME_ZIP="${CHROMEDRIVER_FILENAME}.zip"
 	fi
 	7z e "$CHROMEDRIVER_FILENAME" && ls
