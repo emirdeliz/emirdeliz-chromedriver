@@ -31,6 +31,9 @@ downloadDriver() {
 	# # fi
 
 	DONWLOAD_URL="https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_RELEASE/$FILENAME_ZIP"
+
+	echo "$DONWLOAD_URL"
+
 	curl -L -o ./"$FILENAME_ZIP" "$DONWLOAD_URL"
 }
 
@@ -44,7 +47,7 @@ unzipFiles() {
 	# if [ "$OSTYPE" != "msys" ]; then
 	# 	FILENAME_ZIP="${CHROMEDRIVER_FILENAME}.zip"
 	# fi
-	7z e .//"${CHROMEDRIVER_FILENAME}.zip" && ls
+	7z e "${CHROMEDRIVER_FILENAME}.zip" && ls
 }
 
 main() {
