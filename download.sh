@@ -24,13 +24,22 @@ getDriverVersion() {
 downloadDriver() {
 	CHROMEDRIVER_RELEASE="$1"
 	CHROMEDRIVER_FILENAME="$2"
+	FILENAME_ZIP="$CHROMEDRIVER_FILENAME"
+
+	if ! [ "$OSTYPE" == "msys" ]; then
+		FILENAME_ZIP="${CHROMEDRIVER_FILENAME}.zip"
+	fi
+
+	echo "FILENAME_ZIP $FILENAME_ZIP"
+
 	DONWLOAD_URL="https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_RELEASE/$CHROMEDRIVER_FILENAME"
-	curl --show-error --retry 10 --output "${CHROMEDRIVER_FILENAME}.zip" "$DONWLOAD_URL"
+	curl --show-error --retry 10 --output "$FILENAME_ZIP" "$DONWLOAD_URL"
 }
 
 unzipFiles() {
 	CHROMEDRIVER_FILENAME="$1"
 	FILENAME_ZIP="${CHROMEDRIVER_FILENAME}.zip"
+
 	if [ "$OSTYPE" == "msys" ]; then
 		jar -xvf "$FILENAME_ZIP" && ls
 	else
