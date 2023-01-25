@@ -36,12 +36,13 @@ downloadDriver() {
 
 unzipFiles() {
 	CHROMEDRIVER_FILENAME="$1"
+	DOWNLOAD_PATH="$2"
 	FILENAME_ZIP="$CHROMEDRIVER_FILENAME"
-	CURRENT_DIR=$(pwd)
+	CURRENT_DIR="C:\\d\\a\\emirdeliz-chromedriver\\emirdeliz-chromedriver\\$DOWNLOAD_PATH"
 	echo "$CURRENT_DIR////$CHROMEDRIVER_FILENAME"
 
 	if [ "$OSTYPE" == "msys" ]; then
-		ls && powershell -command "Expand-Archive C:/$CURRENT_DIR/$CHROMEDRIVER_FILENAME C:/$CURRENT_DIR" && ls
+		ls && powershell -command "Expand-Archive $CURRENT_DIR\\$CHROMEDRIVER_FILENAME $CURRENT_DIR" && ls
 	else
 		FILENAME_ZIP="${CHROMEDRIVER_FILENAME}.zip"
 		unzip "$FILENAME_ZIP"
@@ -51,11 +52,12 @@ unzipFiles() {
 main() {
 	CHROMEDRIVER_FILENAME="chromedriver_$2"
 	CHROMEDRIVER_RELEASE="$(getDriverVersion "$1")"
+	DOWNLOAD_PATH="$3"
 
-	setDownloadDir "$3" &&
+	setDownloadDir "$DOWNLOAD_PATH" &&
 		removeObsoleteFiles &&
 		downloadDriver "$CHROMEDRIVER_RELEASE" "${CHROMEDRIVER_FILENAME}.zip" &&
-		unzipFiles "$CHROMEDRIVER_FILENAME" &&
+		unzipFiles "$CHROMEDRIVER_FILENAME" "$DOWNLOAD_PATH" &&
 		./chromedriver --version
 }
 
