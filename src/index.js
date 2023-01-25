@@ -1,3 +1,4 @@
+import path from 'path';
 import { exec as _exec } from '@actions/exec';
 import { getInput } from '@actions/core';
 
