@@ -7,7 +7,7 @@ async function run() {
 	const arch = getInput('arch', { required: false });
 	const downloadPath = getInput('download-path', { required: false });
 
-	const shPath = `${fs.realpathSync('.')}/dist/download.sh`;
+	const shPath = `${fs.realpathSync('.')}/src/download.sh`;
 	await _exec('sh', shPath, [version, arch, downloadPath]);
 }
 
