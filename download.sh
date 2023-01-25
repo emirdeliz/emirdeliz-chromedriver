@@ -30,7 +30,13 @@ downloadDriver() {
 
 unzipFiles() {
 	CHROMEDRIVER_FILENAME=$1
-	gzip -d "$CHROMEDRIVER_FILENAME".zip
+	OS="$(uname)"
+
+	if [ "$OS" = "WindowsNT" ]; then
+		pkunzip "$CHROMEDRIVER_FILENAME".zip
+	else
+		unzip "$CHROMEDRIVER_FILENAME".zip
+	fi
 }
 
 main() {
