@@ -1,7 +1,7 @@
 # emirdeliz-chromedriver
 
-[![Linux 64] (https://github.com/emirdeliz/emirdeliz-chromedriver/actions/workflows/linux64.yml/badge.svg)](https://github.com/emirdeliz/emirdeliz-chromedriver/actions/workflows/linux64.yml)
-[![Mac 64] (https://github.com/emirdeliz/emirdeliz-chromedriver/actions/workflows/mac64.yml/badge.svg)](https://github.com/emirdeliz/emirdeliz-chromedriver/actions/workflows/mac64.yml)
+[![Linux 64](https://github.com/emirdeliz/emirdeliz-chromedriver/actions/workflows/linux64.yml/badge.svg)](https://github.com/emirdeliz/emirdeliz-chromedriver/actions/workflows/linux64.yml)
+[![Mac 64](https://github.com/emirdeliz/emirdeliz-chromedriver/actions/workflows/mac64.yml/badge.svg)](https://github.com/emirdeliz/emirdeliz-chromedriver/actions/workflows/mac64.yml)
 
 This action sets up a [ChromeDriver](https://chromedriver.chromium.org/) for use in actions
 
