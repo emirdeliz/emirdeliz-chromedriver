@@ -30,9 +30,7 @@ downloadDriver() {
 
 unzipFiles() {
 	CHROMEDRIVER_FILENAME=$1
-	OS="$(uname)"
-
-	echo "CHEGOU AQUI... $OS"
+	echo "CHEGOU AQUI... $OSTYPE"
 
 	if [ "$OSTYPE" == "win32" ]; then
 		echo "ENTROU AQUI..."
