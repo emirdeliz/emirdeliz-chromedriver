@@ -52,6 +52,8 @@ unzipFiles() {
 	echo ""
 	echo ""
 
+	7z && jar
+
 	if [ "$OSTYPE" == "msys" ]; then
 		# powershell -command "Expand-Archive -Force $CHROMEDRIVER_FILENAME -DestinationPath $CURRENT_DIR" && ls
 		powershell -command "Expand-Archive -Force '%~dp0$CHROMEDRIVER_FILENAME' '%~dp0'"
