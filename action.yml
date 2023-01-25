@@ -14,3 +14,6 @@ inputs:
   download-path:
     description: 'The path to download chromedriver'
     default: ''
+runs:
+  using: 'node16'
+  main: 'src/index.js'
