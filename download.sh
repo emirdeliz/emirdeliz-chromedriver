@@ -30,13 +30,11 @@ downloadDriver() {
 
 unzipFiles() {
 	CHROMEDRIVER_FILENAME=$1
-	echo "CHEGOU AQUI... $OSTYPE"
-
+	FILENAME_ZIP="$CHROMEDRIVER_FILENAME".zip
 	if [ "$OSTYPE" == "msys" ]; then
-		echo "ENTROU AQUI..."
-		tar -a -c -f "$CHROMEDRIVER_FILENAME".zip "$CHROMEDRIVER_FILENAME"
+		ls && tar -a -c -f "$FILENAME_ZIP" "$CHROMEDRIVER_FILENAME"
 	else
-		unzip "$CHROMEDRIVER_FILENAME".zip
+		unzip "$FILENAME_ZIP"
 	fi
 }
 
