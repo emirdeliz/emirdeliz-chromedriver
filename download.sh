@@ -34,11 +34,6 @@ downloadDriver() {
 	curl --show-error --retry 10 --output "$FILENAME_ZIP" "$DONWLOAD_URL"
 }
 
-getCurrentDirAsPath() {
-	for /f "tokens=* delims=/" %%A in ('cd') do set CURRENT_DIR=%%A
-	echo CURRENT_DIR%%A 
-}
-
 unzipFiles() {
 	CHROMEDRIVER_FILENAME="$1"
 	FILENAME_ZIP="$CHROMEDRIVER_FILENAME"
