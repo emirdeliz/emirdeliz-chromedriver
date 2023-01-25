@@ -37,8 +37,7 @@ downloadDriver() {
 unzipFiles() {
 	CHROMEDRIVER_FILENAME="$1"
 	FILENAME_ZIP="$CHROMEDRIVER_FILENAME"
-	CURRENT_DIR=$(pwd)
-
+	CURRENT_DIR=$(cd || exit)
 	echo "$CURRENT_DIR/$CHROMEDRIVER_FILENAME"
 
 	if [ "$OSTYPE" == "msys" ]; then
