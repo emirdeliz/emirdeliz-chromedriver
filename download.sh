@@ -37,14 +37,16 @@ downloadDriver() {
 unzipFiles() {
 	CHROMEDRIVER_FILENAME="$1"
 	FILENAME_ZIP="$CHROMEDRIVER_FILENAME"
+	CURRENT_DIR=$(pwd)
 
-	# if [ "$OSTYPE" == "msys" ]; then
-	# 	ls && tar -xf "$FILENAME_ZIP" && ls
-	# else
-	# 	FILENAME_ZIP="${CHROMEDRIVER_FILENAME}.zip"
-	# 	unzip "$FILENAME_ZIP"
-	# fi
-	pwd && tar -xf "$FILENAME_ZIP"
+	echo "$CURRENT_DIR\$CHROMEDRIVER_FILENAME"
+
+	if [ "$OSTYPE" == "msys" ]; then
+		ls && powershell -command "Expand-Archive $CURRENT_DIR\$CHROMEDRIVER_FILENAME CURRENT_DIR" && ls
+	else
+		FILENAME_ZIP="${CHROMEDRIVER_FILENAME}.zip"
+		unzip "$FILENAME_ZIP"
+	fi
 }
 
 main() {
