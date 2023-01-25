@@ -32,7 +32,7 @@ unzipFiles() {
 	CHROMEDRIVER_FILENAME=$1
 	echo "CHEGOU AQUI... $OSTYPE"
 
-	if [ "$OSTYPE" == "win32" ]; then
+	if [ "$OSTYPE" == "msys" ]; then
 		echo "ENTROU AQUI..."
 		pkunzip "$CHROMEDRIVER_FILENAME"
 	else
