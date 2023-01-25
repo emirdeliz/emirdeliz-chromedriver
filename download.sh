@@ -42,7 +42,7 @@ unzipFiles() {
 	echo $(pwd)
 
 	if [ "$OSTYPE" == "msys" ]; then
-		ls && powershell -command "Expand-Archive $CURRENT_DIR\\$CHROMEDRIVER_FILENAME -DestinationPath $CURRENT_DIR" && ls
+		ls && powershell -command "Expand-Archive -Path $CHROMEDRIVER_FILENAME -DestinationPath $CURRENT_DIR" && ls
 	else
 		FILENAME_ZIP="${CHROMEDRIVER_FILENAME}.zip"
 		unzip "$FILENAME_ZIP"
