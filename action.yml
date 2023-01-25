@@ -14,6 +14,3 @@ inputs:
   download-path:
     description: 'The path to download chromedriver'
     default: ''
-runs:
-  using: 'composite'
-  main: sh download.sh
