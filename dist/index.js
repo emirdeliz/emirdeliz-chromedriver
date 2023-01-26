@@ -4073,7 +4073,7 @@ async function run() {
 	const version = (0,_actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput)('version', { required: false });
 	const arch = (0,_actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput)('arch', { required: false });
 	const downloadPath = (0,_actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput)('download-path', { required: false });
-	await (0,_actions_exec__WEBPACK_IMPORTED_MODULE_0__.exec)('bash download.sh', [version, arch, downloadPath]);
+	await (0,_actions_exec__WEBPACK_IMPORTED_MODULE_0__.exec)('bash dist/download.sh', [version, arch, downloadPath]);
 }
 
 run();
