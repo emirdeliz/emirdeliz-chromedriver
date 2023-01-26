@@ -1,0 +1,19 @@
+name: 'emirdeliz-chromedriver'
+description: 'Download the chromedriver'
+author: Emir Marques - <emirdeliz@gmail.com>
+branding:
+  color: green
+  icon: activity
+inputs:
+  version:
+    description: 'The chromedriver version'
+    default: 'latest'
+  arch:
+    description: 'The chromedriver arch (linux64, mac64, mac_arm64 or wind32)'
+    default: 'linux64'
+  download-path:
+    description: 'The path to download chromedriver'
+    default: ''
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

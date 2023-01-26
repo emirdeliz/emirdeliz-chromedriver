@@ -17,7 +17,7 @@
 		"@vercel/ncc": "^0.36.1"
 	},
 	"scripts": {
-		"build": "ncc build src/index.js",
+		"build": "ncc build src/index.js && yarn package",
 		"package": "cp action.yml README.md src/download.sh dist/"
 	}
 }
