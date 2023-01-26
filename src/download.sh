@@ -39,6 +39,8 @@ main() {
 	CHROMEDRIVER_RELEASE="$(getDriverVersion "$1")"
 	DOWNLOAD_PATH="$3"
 
+	echo "version $1 arch $2 dir $3 "
+
 	setDownloadDir "$DOWNLOAD_PATH" &&
 		removeObsoleteFiles &&
 		downloadDriver "$CHROMEDRIVER_RELEASE" "$CHROMEDRIVER_FILENAME" &&

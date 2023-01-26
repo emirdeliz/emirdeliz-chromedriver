@@ -1,5 +1,4 @@
-import fs from 'fs';
-import { exec as _exec } from '@actions/exec';
+import { exec } from '@actions/exec';
 import { getInput } from '@actions/core';
 
 async function run() {
@@ -12,9 +11,7 @@ async function run() {
 		arch,
 		downloadPath,
 	});
-
-	const shPath = `${fs.realpathSync('.')}/src/download.sh`;
-	await _exec('bash', shPath, [version, arch, downloadPath]);
+	await exec('bash ./src/download.sh', [version, arch, downloadPath]);
 }
 
 run();
