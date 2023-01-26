@@ -35,7 +35,7 @@ unzipFiles() {
 }
 
 installDependencies() {
-	apt update && sudo apt install -y libnss3
+	apt update && sudo apt install -y libnss3 libglib-2.0.so.0
 }
 
 main() {
