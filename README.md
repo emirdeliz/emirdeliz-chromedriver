@@ -22,7 +22,7 @@ input:
     description: 'The chromedriver version'
     default: 'latest'
   arch:
-    description: 'The chromedriver arch (linux64, mac64, mac_arm64 or wind32)'
+    description: 'The chromedriver arch (linux64, mac64 or mac_arm64)'
     default: 'linux64'
   download-path:
     description: 'The path to download chromedriver'

@@ -34,17 +34,24 @@ unzipFiles() {
 	ls && unzip "${CHROMEDRIVER_FILENAME}.zip" && ls
 }
 
+installDependencies() {
+	apt update && sudo apt install -y libnss3
+}
+
 main() {
 	CHROMEDRIVER_FILENAME="chromedriver_$2"
 	CHROMEDRIVER_RELEASE="$(getDriverVersion "$1")"
 	DOWNLOAD_PATH="$3"
 
-	echo "version $1 arch $2 dir $3 "
-
 	setDownloadDir "$DOWNLOAD_PATH" &&
 		removeObsoleteFiles &&
 		downloadDriver "$CHROMEDRIVER_RELEASE" "$CHROMEDRIVER_FILENAME" &&
-		unzipFiles "$CHROMEDRIVER_FILENAME" &&
+		unzipFiles "$CHROMEDRIVER_FILENAME"
+		
+
+		if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+			installDependencies
+		fi
 		./chromedriver --version
 }
 

@@ -4064,26 +4064,16 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("util");
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(147);
-/* harmony import */ var _actions_exec__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(514);
-/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_2__ = __nccwpck_require__(186);
-
+/* harmony import */ var _actions_exec__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(514);
+/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(186);
 
 
 
 async function run() {
-	const version = (0,_actions_core__WEBPACK_IMPORTED_MODULE_2__.getInput)('version', { required: false });
-	const arch = (0,_actions_core__WEBPACK_IMPORTED_MODULE_2__.getInput)('arch', { required: false });
-	const downloadPath = (0,_actions_core__WEBPACK_IMPORTED_MODULE_2__.getInput)('download-path', { required: false });
-
-	console.log({
-		version,
-		arch,
-		downloadPath,
-	});
-
-	const shPath = `${fs__WEBPACK_IMPORTED_MODULE_0__.realpathSync('.')}/src/download.sh`;
-	await (0,_actions_exec__WEBPACK_IMPORTED_MODULE_1__.exec)('bash', shPath, [version, arch, downloadPath]);
+	const version = (0,_actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput)('version', { required: false });
+	const arch = (0,_actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput)('arch', { required: false });
+	const downloadPath = (0,_actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput)('download-path', { required: false });
+	await (0,_actions_exec__WEBPACK_IMPORTED_MODULE_0__.exec)('bash ./src/download.sh', [version, arch, downloadPath]);
 }
 
 run();

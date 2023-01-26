@@ -5,12 +5,6 @@ async function run() {
 	const version = getInput('version', { required: false });
 	const arch = getInput('arch', { required: false });
 	const downloadPath = getInput('download-path', { required: false });
-
-	console.log({
-		version,
-		arch,
-		downloadPath,
-	});
 	await exec('bash ./src/download.sh', [version, arch, downloadPath]);
 }
 
